@@ -8,8 +8,10 @@ export default function RegisterPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   const handleRegister = async () => {
+    //insert sa auth ni supabase
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -20,16 +22,9 @@ export default function RegisterPage() {
       },
     });
 
-    if (data.user) {
-      await supabase.from("profiles").insert({
-        id: data.user.id,
-        email,
-      });
+    if (error) return error.message;
 
-      router.push("/dashboard");
-
-      if (error) alert(error.message);
-    }
+    router.push("/dashboard");
   };
 
   const handleClickLogin = async () => {
@@ -42,13 +37,19 @@ export default function RegisterPage() {
         <h1 className="text-xl font-bold mb-4 dark:text-gray-900">Register</h1>
 
         <input
-          className="border w-full p-2 mb-2"
+          className="border border-black w-full p-2 mb-2 dark:text-black"
+          placeholder="Username"
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        <input
+          className="border border-black w-full p-2 mb-2 dark:text-black"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
-          className="border w-full p-2 mb-2"
+          className="border border-black w-full p-2 mb-2 dark:text-black"
           type="password"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
