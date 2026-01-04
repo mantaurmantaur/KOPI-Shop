@@ -1,12 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { redirect } from "next/navigation";
+import { supabase } from "@/lib/supabase";
 
-export default function Home() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push("/login");
-  }, [router]);
+export default async function Home() {
+  const { data } = await supabase.auth.getSession();
+  if (data.session) {
+    redirect("/login");
+  }
 }
