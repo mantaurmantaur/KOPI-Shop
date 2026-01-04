@@ -6,8 +6,7 @@ import { useEffect } from "react";
 export default function Home() {
   // const { data } = await supabase.auth.getSession();
   // if (data.session) {
-  //   redirect("/login");s
+  //   redirect("/login");
   // }
-
   redirect("/login");
 }
