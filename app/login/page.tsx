@@ -24,23 +24,44 @@ export default function LoginPage() {
     router.push("/register");
   };
 
+  const showPassword = () => {
+    const x = document.getElementById("myPassword") as HTMLInputElement;
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white p-6 rounded-lg shadow w-80 items-center justify-center">
         <h1 className="text-xl font-bold mb-4 dark:text-gray-900">Login</h1>
 
         <input
-          className="border border-black w-full p-2 mb-2"
+          className="border border-black w-full p-2 mb-2 dark:text-black"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <input
-          className="border border-black w-full p-2 mb-2"
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="password flex flex-col items-end gap-2">
+          <input
+            className="border border-black w-full p-2 dark:text-black"
+            type="password"
+            placeholder="Password"
+            id="myPassword"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
+            type="button"
+            id="togglePassword"
+            className="text-sm text-blue-700 hover:underline mt-1"
+            onClick={showPassword}
+          >
+            Show Password
+          </button>
+        </div>
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
 

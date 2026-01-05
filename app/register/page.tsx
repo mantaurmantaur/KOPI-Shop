@@ -17,7 +17,7 @@ export default function RegisterPage() {
       password,
       options: {
         data: {
-          username,
+          display_name: username,
         },
       },
     });
