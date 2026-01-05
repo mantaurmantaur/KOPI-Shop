@@ -5,18 +5,42 @@ import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [identifier, setIdentifier] = useState(""); // username or email
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleLogin = async () => {
-    const { error } = await supabase.auth.signInWithPassword({
+    setError("");
+
+    let email = identifier;
+
+    if (!identifier.includes("@")) {
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("email")
+        .eq("username", identifier)
+        .single(); // returns one object
+
+      if (error || !data) {
+        setError("Username not found");
+        return;
+      }
+
+      email = data.email;
+    }
+
+    // Sign in with email + password
+    const { error: loginError } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
-    if (error) return setError(error.message);
+    if (loginError) {
+      setError(loginError.message);
+      return;
+    }
+
     router.push("/dashboard");
   };
 
@@ -41,7 +65,7 @@ export default function LoginPage() {
         <input
           className="border border-black w-full p-2 mb-2 dark:text-black"
           placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setIdentifier(e.target.value)}
         />
 
         <div className="password flex flex-col items-end gap-2">
