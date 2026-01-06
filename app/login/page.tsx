@@ -30,7 +30,6 @@ export default function LoginPage() {
       email = data.email;
     }
 
-    // Sign in with email + password
     const { error: loginError } = await supabase.auth.signInWithPassword({
       email,
       password,
