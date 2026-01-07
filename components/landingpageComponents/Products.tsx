@@ -9,9 +9,9 @@ const list = [
 
 export default function Product() {
   return (
-    <div className="products-page home-container mt-0 min-h-screen w-full relative p-4">
+    <div className="products-page home-container min-h-screen w-full relative px-4 ">
       {/* title */}
-      <h1 className="text-center text-dbrown font-poppins text-6xl mt-20 font-bold">
+      <h1 className="text-center text-dbrown font-poppins text-6xl mt-10 font-bold">
         Our Signature
       </h1>
       <h2 className="text-center text-dbrown font-poppins text-lg mt-5 font-medium">
@@ -22,17 +22,17 @@ export default function Product() {
         {list.map((item) => (
           <div
             key={item.name}
-            className="product-card bg-lbrown bg-opacity-50 rounded-xl flex flex-col items-center "
+            className="product-card bg-lbrown h-85 bg-opacity-50 rounded-xl flex flex-col items-center hover:scale-105 transition-transform duration-300 cursor-pointer"
           >
             <Image
               src={item.image}
               alt={item.name}
-              className="w-150 h-60 object-cover rounded-lg rounded-t-lg"
+              className="w-150 h-75 object-cover rounded-lg rounded-t-lg"
               width={100}
               height={100}
               priority
             />
-            <h3 className="text-lyellow font-poppins text-lg mt-2 p-2 font-semibold">
+            <h3 className="text-lyellow font-poppins text-lg s p-2 font-semibold">
               {item.name}
             </h3>
           </div>

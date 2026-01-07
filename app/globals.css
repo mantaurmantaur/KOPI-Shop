@@ -29,6 +29,7 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --scale: min(1, 100vw / 1440);
   }
 }
 
@@ -39,6 +40,9 @@ body {
   margin: border-box;
   height: 100%;
   width: 100%;
+  min-height: 100vh;
+  min-width: fit-content;
+  scroll-behavior: smooth;
 }
 
 .font-impact {
