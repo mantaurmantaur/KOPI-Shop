@@ -32,24 +32,26 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg shadow w-80">
-        <h1 className="text-xl font-bold mb-4 dark:text-gray-900">Register</h1>
+    <div className="min-h-screen  bg-lyellow flex items-center justify-center">
+      <div className="bg-dbrown p-6 rounded-lg shadow w-80">
+        <h1 className="text-xl font-bold mb-4 dark:text-lyellow font-poppins text-center">
+          Register
+        </h1>
 
         <input
-          className="border border-black w-full p-2 mb-2 dark:text-black"
+          className="border border-lyellow w-full p-2 mb-2 dark:text-lyellow rounded-sm focus:outline-lyellow"
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
         />
 
         <input
-          className="border border-black w-full p-2 mb-2 dark:text-black"
+          className="border border-lyellow w-full p-2 mb-2 dark:text-lyellow rounded-sm focus:outline-lyellow"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
-          className="border border-black w-full p-2 mb-2 dark:text-black"
+          className="border border-lyellow w-full p-2 mb-2 dark:text-lyellow rounded-sm focus:outline-lyellow"
           type="password"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
@@ -57,13 +59,13 @@ export default function RegisterPage() {
 
         <button
           onClick={handleRegister}
-          className="bg-black text-white w-full py-2 mt-3 rounded mb-3 hover:bg-gray-900 cursor-pointer"
+          className="bg-lyellow text-lbrown w-full py-2 mt-3 rounded mb-3 hover:bg-lbrown hover:text-lyellow cursor-pointer"
         >
           Create Account
         </button>
 
         <a
-          className="dark:text-black  text-sm hover:underline cursor-pointer mt-3 py-2 "
+          className="dark:text-lyellow text-lyellow text-sm hover:underline cursor-pointer mt-3 py-2"
           onClick={handleClickLogin}
         >
           Already have an account?

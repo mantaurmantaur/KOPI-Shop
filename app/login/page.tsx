@@ -57,19 +57,21 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg shadow w-80 items-center justify-center">
-        <h1 className="text-xl font-bold mb-4 dark:text-gray-900">Login</h1>
+    <div className="min-h-screen bg-lyellow bg-opacity-50 flex items-center justify-center">
+      <div className="bg-dbrown p-6 rounded-lg shadow w-80 items-center justify-center">
+        <h1 className="text-xl font-bold mb-4 dark:text-lyellow font-poppins text-center">
+          Login
+        </h1>
 
         <input
-          className="border border-black w-full p-2 mb-2 dark:text-black"
+          className="border border-lyellow  w-full p-2 mb-2 dark:text-lyellow rounded-sm focus:outline-lyellow"
           placeholder="Email"
           onChange={(e) => setIdentifier(e.target.value)}
         />
 
         <div className="password flex flex-col items-end gap-2">
           <input
-            className="border border-black w-full p-2 dark:text-black"
+            className="border border-lyellow focus:outline-dbrown  rounded-sm w-full p-2 dark:text-lyellow"
             type="password"
             placeholder="Password"
             id="myPassword"
@@ -79,24 +81,24 @@ export default function LoginPage() {
           <button
             type="button"
             id="togglePassword"
-            className="text-sm text-blue-700 hover:underline mt-1"
+            className="text-sm text-rbrown cursor-pointer hover:underline mt-1"
             onClick={showPassword}
           >
             Show Password
           </button>
         </div>
 
-        {error && <p className="text-red-500 text-sm">{error}</p>}
+        {error && <p className="text-lyellow text-sm">{error}!</p>}
 
         <button
           onClick={handleLogin}
-          className="bg-black text-white w-full py-2 mt-3 rounded cursor-pointer hover:bg-gray-900 mb-3"
+          className="bg-lyellow text-lbrown w-full py-2 mt-3 rounded cursor-pointer hover:bg-lbrown hover:text-lyellow mb-3"
         >
           Sign In
         </button>
 
         <a
-          className="dark:text-black  text-sm hover:underline cursor-pointer mt-3 py-2"
+          className="dark:text-lyellow text-lyellow text-sm hover:underline cursor-pointer mt-3 py-2"
           onClick={handleClickRegister}
         >
           Don't have an account?

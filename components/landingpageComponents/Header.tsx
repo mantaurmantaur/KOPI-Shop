@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="header-container flex flex-row items-center justify-between p-2">
+    <div className="header-container flex flex-row items-center justify-between">
       {/* logo */}
       <section className="logo-section flex items-center">
         <Image

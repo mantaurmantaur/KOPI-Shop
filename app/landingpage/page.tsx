@@ -26,10 +26,8 @@ export default function landingpage() {
         className="w-screen min-h-screen bg-[url('/beans.jpeg')] bg-cover bg-center mt-20 relative"
         id="about"
       >
-        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-linear-to-r from-[#f5efe6]/80 via-[#f5efe6]/50 to-transparent"></div>
 
-        {/* Content */}
         <div className="relative z-10 w-full px-10 py-20">
           <About />
         </div>
